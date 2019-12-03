@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'quote.dart';
+import 'quote_card.dart';
 
 void main() => runApp(MaterialApp(
   home: QuoteList(),
@@ -11,11 +13,14 @@ class QuoteList extends StatefulWidget {
 
 class _QuoteListState extends State<QuoteList> {
 
-  List<String> quotes = [
-    'everyone is smart',
-    'I love coffee',
-    'I love coding'
+  List<Quote> quotes = [
+    Quote(author: 'Diane Ackerman',text: 'Artificial intelligence is growing up fast, as are robots whose facial expressions can elicit empathy and make your mirror neurons quiver.'),
+    Quote(author: 'Colin Angle', text: 'It\'s going to be interesting to see how society deals with artificial intelligence, but it will definitely be cool.'),
+    Quote(author: 'Claude Shannon',text: 'I visualize a time when we will be to robots what dogs are to humans, and I’m rooting for the machines.')
   ];
+  
+
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,10 +31,9 @@ class _QuoteListState extends State<QuoteList> {
         backgroundColor: Colors.redAccent,
       ),
       body: Column(
-        children: quotes.map((quote) => Text(quote)).toList(),
+        children: quotes.map((quote) => QuoteCard(quote:quote)).toList(),
       ),
     );
   }
 }
-
 
